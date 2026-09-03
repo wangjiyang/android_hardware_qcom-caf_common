@@ -965,3 +965,27 @@ prebuilt_hidl_interfaces {
         "vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner",
     ],
 }
+
+// Display defaults for sm8450/sm8750 (previously from hardware/qcom/sm7250/display)
+
+// Display defaults for sm8450/sm8750 (previously from hardware/qcom/sm7250/display)
+cc_defaults {
+    name: "qtidisplay_defaults",
+    cflags: [
+        "-Wno-missing-field-initializers",
+        "-Wno-unused-parameter",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libutils",
+    ],
+}
+
+cc_defaults {
+    name: "qtidisplay_common_defaults",
+    cflags: [
+        "-Wno-missing-field-initializers",
+        "-Wno-unused-parameter",
+    ],
+}
