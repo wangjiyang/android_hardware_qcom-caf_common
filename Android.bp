@@ -3,8 +3,12 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-soong_namespace {
-}
+// ★ 故意不声明 soong_namespace(上游同款):本仓的 qti_kernel_headers /
+//   audio_kernel_headers / libqti_vndfwk_detect 等公共模块留在**根命名空间**,
+//   对全树所有模块可见。曾有人加过 soong_namespace{} 把它们搬进
+//   hardware/qcom-caf/common,导致全树一串 "undefined module"(lights.qcom、
+//   snapalloc…),又用一堆 import 补丁追着修 —— 那是病根不是药,
+//   2026-10-08 撤销(见 fork commit 历史)。
 
 cc_library_headers {
     name: "audio_kernel_headers",

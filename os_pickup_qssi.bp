@@ -1,12 +1,15 @@
 soong_namespace {
     imports: [
-        "hardware/qcom-caf/common",
         // ★ display_headers 在我们 sm8450/display fork 自己的命名空间里
         //   (display/Android.bp 有独立的 soong_namespace 块),不在平台命名空间。
         //   各平台 media/libc2dcolorconvert 都依赖它;2026-09-13 repo sync 清掉
         //   各平台 display 仓的磁盘残留后,指向空的平台命名空间导致 soong 分析
         //   6 个平台齐报 "depends on undefined module display_headers"。
         "hardware/qcom-caf/sm8450/display",
+        // ★ 同理:libacdb_headers 定义在我们 arpal-lx fork(sm8450/audio/pal)
+        //   的平台命名空间里 —— remove-project 删上游 arpal-lx 时把各平台的
+        //   pal 一起删了、只补回 sm8450,其他平台保留的 agm 仓引用它。
+        "hardware/qcom-caf/sm8450",
         "vendor/qcom/opensource/commonsys-intf/display",
         "vendor/qcom/opensource/display",
     ],
