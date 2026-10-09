@@ -1,7 +1,8 @@
 soong_namespace {
     imports: [
         "hardware/qcom-caf/common",
-        "hardware/qcom-caf/sm8450",
+        // 同 os_pickup_qssi.bp:display_headers 在 sm8450/display fork 的命名空间。
+        "hardware/qcom-caf/sm8450/display",
     ],
 }
 
